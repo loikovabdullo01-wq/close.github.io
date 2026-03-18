@@ -96,9 +96,23 @@
         <a href="#services">Услуги</a>
         <a href="#order">Заказать</a>
         <a href="#contacts">Контакты</a>
+
+<head>
+    <!-- Основная иконка для браузеров -->
+    <link rel="icon" href="1.jpg" type="image">
+    
+    <!-- Иконка для устройств Apple (iPhone/iPad) -->
+    <link rel="apple-touch-icon" href="1.jpg">
+    
+    <!-- Иконка в формате ICO для старых браузеров (необязательно) -->
+    <link rel="shortcut icon" href="1.jpg" type="image/x-icon">
+</head>
+
+
       </nav>
     </div>
   </header>
+
 
   <main>
     <section class="hero" id="top" role="banner">
@@ -205,6 +219,7 @@
           </div>
         </article>
       </div>
+    
     </section>
 
     <section id="portfolio" class="container portfolio" aria-labelledby="portfolio-title">
@@ -287,60 +302,106 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-    // Простая имитация отправки формы без бэкенда
-    (function(){
-      const form = document.getElementById('orderForm');
-      const toast = document.getElementById('toast');
-      const status = document.getElementById('formStatus');
+(function() {
+  const form = document.getElementById('orderForm');
+  const status = document.getElementById('formStatus');
 
-      function showToast(msg, duration=3000){
-        toast.textContent = msg;
-        toast.style.display = 'block';
-        setTimeout(()=>{ toast.style.display = 'none'; }, duration);
+  // ────────────────────────────────────────────────
+  // НАСТРОЙКИ TELEGRAM (лучше потом вынести на сервер!)
+  // ────────────────────────────────────────────────
+  const TG_TOKEN   = '8126463959:AAEp2JNil_vkdf5eBe-J1idT3-cEpifbFx8';
+  const TG_CHAT_ID = '8232492258';
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // ─── Защита от ботов (honeypot) ─────────────────────────────
+    const honeypot = form.querySelector('input[name="honeypot"]');
+    if (honeypot && honeypot.value.trim() !== '') {
+      status.style.color = "red";
+      status.textContent = "Что-то пошло не так. Попробуйте позже.";
+      console.warn("Возможная попытка спама (honeypot заполнен)");
+      return;
+    }
+
+    // ─── Проверка обязательных полей ─────────────────────────────
+    if (!form.name.value.trim() ||
+        !form.email.value.trim() ||
+        !form.service.value ||
+        !form.details.value.trim()) {
+      status.style.color = "red";
+      status.textContent = "Заполните пожалуйста: имя, email, услугу и описание задачи.";
+      return;
+    }
+
+    // Простая проверка email (более строгая, чем required)
+    const email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.style.color = "red";
+      status.textContent = "Похоже, email введён некорректно.";
+      return;
+    }
+
+    status.style.color = "var(--muted)";
+    status.textContent = "Отправляем заявку...";
+
+    // Собираем данные
+    const data = {
+      name:     form.name.value.trim(),
+      email:    email,
+      service:  form.service.value,
+      deadline: form.deadline.value.trim() || 'Не указано',
+      details:  form.details.value.trim()
+    };
+
+    const message = `
+<b>🔔 НОВАЯ ЗАЯВКА С САЙТА</b>
+
+👤 <b>Имя:</b> ${data.name}
+📧 <b>Email:</b> ${data.email}
+🛠 <b>Услуга:</b> ${data.service}
+📅 <b>Желаемый срок:</b> ${data.deadline}
+📝 <b>Задача:</b>
+${data.details}
+
+──────────────────────────────
+Время: ${new Date().toLocaleString('ru-RU')}
+    `.trim();
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TG_CHAT_ID,
+          text: message,
+          parse_mode: 'HTML',
+          disable_web_page_preview: true
+        })
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(`Telegram ошибка: ${response.status} — ${errData.description || 'нет описания'}`);
       }
 
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
+      status.style.color = "lime";
+      status.textContent = "✅ Заявка отправлена! Скоро с вами свяжутся.";
+      form.reset();
 
-        // Валидация простая
-        if(!form.name.value.trim() || !form.email.value.trim() || !form.service.value){
-          status.textContent = "Пожалуйста, заполните имя, email и услугу.";
-          return;
-        }
-
-        // Собираем данные (для примера)
-        const data = {
-          name: form.name.value.trim(),
-          email: form.email.value.trim(),
-          service: form.service.value,
-          deadline: form.deadline.value.trim(),
-          details: form.details.value.trim(),
-          timestamp: new Date().toISOString()
-        };
-
-        // Пытаемся прочитать файлы (если были)
-        const filesInput = document.getElementById('files');
-        if(filesInput && filesInput.files && filesInput.files.length){
-          data.files = [];
-          for(const f of filesInput.files){
-            data.files.push({name: f.name, size: f.size, type: f.type});
-          }
-        }
-
-        // Вместо реального запроса — сохраняем в localStorage как временную копию
-        try{
-          const history = JSON.parse(localStorage.getItem('orders') || '[]');
-          history.unshift(data);
-          localStorage.setItem('orders', JSON.stringify(history.slice(0,50))); // лимит 50
-        }catch(err){
-          // игнорируем, если нет локального хранилища
-        }
-
-        form.reset();
+      // Опционально: можно добавить таймер, чтобы статус исчез через 8 сек
+      setTimeout(() => {
         status.textContent = "";
-        showToast("Спасибо! Ваш запрос отправлен. Мы свяжемся в ближайшее время.");
-      });
-    })();
-  </script>
+        status.style.color = "var(--muted)";
+      }, 8000);
+
+    } catch (err) {
+      console.error("Ошибка отправки в Telegram:", err);
+      status.style.color = "red";
+      status.textContent = "❌ Не удалось отправить. Попробуйте позже или напишите напрямую @Loikov_2";
+    }
+  });
+})();
+</script>
 </body>
 </html>
