@@ -6,12 +6,13 @@
   <title>креатив и техника — быстрые решения 2026</title>
   <meta name="description" content="Принимаем заказы на креатив и технику: Photoshop, монтаж, 3D, сайты, брендинг, цветки и анимации. Быстро, качественно, недорого. Контакт: @Loikov_2." />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- Иконки сайта -->
+  
+<!-- Иконки сайта -->
   <link rel="icon" href="1.jpg" type="image/jpeg">
   <link rel="apple-touch-icon" href="1.jpg">
   <link rel="shortcut icon" href="1.jpg" type="image/x-icon">
 
+  
   <style>
     :root{
       --bg: #0b0e14;
@@ -42,11 +43,6 @@
     .nav-links a{color:#d9e3f7;font-weight:500;padding:8px 12px;border-radius:6px}
     .nav-links a:hover{background:rgba(255,255,255,.08)}
 
-    /* Language switcher */
-    .lang-switcher{display:flex;gap:6px;align-items:center;margin-left:12px}
-    .lang-btn{padding:6px 10px;border-radius:6px;border:1px solid rgba(255,255,255,.25);background: rgba(255,255,255,.05);color:#eaffff;font-weight:600;cursor:pointer}
-    .lang-btn[aria-pressed="true"]{outline:2px solid var(--accent)}
-    
     .hero{padding:72px 0 40px;
       text-align:center;
     }
@@ -76,7 +72,7 @@
     .portfolio-note{color:var(--muted);text-align:center;max-width:700px}
 
     /* Order form card */
-    #order-card{background: rgba(0,0,0,.18); padding:20px;border-radius:14px; border:1px solid rgba(255,255,255,.08)}
+    #order{background: rgba(0,0,0,.18); padding:20px;border-radius:14px; border:1px solid rgba(255,255,255,.08)}
     form{display:grid;gap:12px}
     label{font-size:13px;color:#d9e3f7}
     input, select, textarea{width:100%;padding:12px 12px;border-radius:8px;border:1px solid rgba(255,255,255,.25);background: rgba(255,255,255,.04);color:#fff}
@@ -104,48 +100,57 @@
         <span>Loikov 2.0</span>
       </div>
       <nav class="nav-links" aria-label="Разделы сайта">
-        <a href="#services" data-i18n="nav.services">Услуги</a>
-        <a href="#order" data-i18n="nav.order">Заказать</a>
-        <a href="#contacts" data-i18n="nav.contacts">Контакты</a>
-      </nav>
+        <a href="#services">Услуги</a>
+        <a href="#order">Заказать</a>
+        <a href="#contacts">Контакты</a>
 
-      <!-- Переключатель языков -->
-      <div class="lang-switcher" aria-label="Выбор языка">
-        <button class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
-        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-        
-      </div>
+<head>
+    <!-- Основная иконка для браузеров -->
+    <link rel="icon" href="1.jpg" type="image">
+    
+    <!-- Иконка для устройств Apple (iPhone/iPad) -->
+    <link rel="apple-touch-icon" href="1.jpg">
+    
+    <!-- Иконка в формате ICO для старых браузеров (необязательно) -->
+    <link rel="shortcut icon" href="1.jpg" type="image/x-icon">
+</head>
+
+
+      </nav>
     </div>
   </header>
+
 
   <main>
     <section class="hero" id="top" role="banner">
       <div class="container">
-        <h1 data-i18n="hero.title">❕ принимаем заказы на креатив и технику! 2026 год — делаем красиво и быстро.</h1>
+        <h1>❕ принимаем заказы на креатив и технику! 2026 год — делаем красиво и быстро.</h1>
+        
         
         <div class="cta" aria-label="Призыв к действию">
-          <a href="#order" class="btn" role="button" data-i18n="hero.ctaOrder">Оформить заказ</a>
-          <a href="#services" class="btn secondary" role="button" data-i18n="hero.ctaServices">Посмотреть услуги</a>
+          <a href="#order" class="btn" role="button">Оформить заказ</a>
+          <a href="#services" class="btn secondary" role="button">Посмотреть услуги</a>
         </div>
-        <div class="badge" aria-live="polite" data-i18n="hero.badge">Быстро, качественно, недорого. Портфолио — в личку. пишите @Loikov_2</div>
+        <div class="badge" aria-live="polite">Быстро, качественно, недорого. Портфолио — в личку. пишите @Loikov_2</div>
       </div>
     </section>
 
     <section id="services" aria-labelledby="services-title" class="container" >
-      <h2 data-i18n="services.title" id="services-title">Наши услуги</h2>
-      <p class="lead" data-i18n="services.lead">выполняем полный цикл — From идеи до готового продукта. Выбирайте направление, мы подготовим качественный результат.</p>
+      <h2 id="services-title">Наши услуги</h2>
+      <p class="lead">выполняем полный цикл — From идеи до готового продукта. Выбирайте направление, мы подготовим качественный результат.</p>
 
       <div class="grid" aria-label="Список услуг">
         <article class="card service" aria-label="Photoshop и ретушь">
           <div class="icon" aria-hidden="true">
+            <!-- icon: wand / editing -->
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0ff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 20l9-9-3-3-9 9-3 3 6 6z"></path>
               <path d="M3 21l6-6"></path>
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.0.title">Photoshop / ретушь / монтаж фото</h3>
-            <p data-i18n="services.cards.0.desc">Глубокая ретушь, цветокоррекция, монтаж кадров. Под любое настроение и стиль.</p>
+            <h3>Photoshop / ретушь / монтаж фото</h3>
+            <p>Глубокая ретушь, цветокоррекция, монтаж кадров. Под любое настроение и стиль.</p>
           </div>
         </article>
 
@@ -156,8 +161,8 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.1.title">Монтаж видео (Reels, клипы, ролики)</h3>
-            <p data-i18n="services.cards.1.desc">Эффекты, монтаж ритма, звук и цвет. Коротко и ярко — под формат платформ.</p>
+            <h3>Монтаж видео (Reels, клипы, ролики)</h3>
+            <p>Эффекты, монтаж ритма, звук и цвет. Коротко и ярко — под формат платформ.</p>
           </div>
         </article>
 
@@ -168,8 +173,8 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.2.title">3D-моделирование</h3>
-            <p data-i18n="services.cards.2.desc">Фотореалистичные модели, визуализации и прототипы для презентаций.</p>
+            <h3>3D-моделирование</h3>
+            <p>Фотореалистичные модели, визуализации и прототипы для презентаций и работы над проектами.</p>
           </div>
         </article>
 
@@ -180,8 +185,8 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.3.title">Сайты / лендинги / веб</h3>
-            <p data-i18n="services.cards.3.desc">Корпоративные сайты, лендинги, адаптивная верстка и UI/UX дизайн.</p>
+            <h3>Сайты / лендинги / веб</h3>
+            <p>Корпоративные сайты, лендинги, адаптивная верстка и UI/UX дизайн.</p>
           </div>
         </article>
 
@@ -192,8 +197,8 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.4.title">Логотипы + брендинг</h3>
-            <p data-i18n="services.cards.4.desc">Разработка айдентики: логотипы, стиль, гайдлайны, единый визуальный язык.</p>
+            <h3>Логотипы + брендинг</h3>
+            <p>Разработка айдентики: логотипы, стиль, гайдлайны, единый визуальный язык.</p>
           </div>
         </article>
 
@@ -204,8 +209,8 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.5.title">Колоризация старых фото</h3>
-            <p data-i18n="services.cards.5.desc">Возвращаем цвет и жизни архивам: естественные тона и детализированные тени.</p>
+            <h3>Колоризация старых фото</h3>
+            <p>Возвращаем цвет и жизни архивам: естественные тона и детализированные тени.</p>
           </div>
         </article>
 
@@ -216,42 +221,42 @@
             </svg>
           </div>
           <div>
-            <h3 data-i18n="services.cards.6.title">Оживление фотографий (анимация лиц)</h3>
-            <p data-i18n="services.cards.6.desc">Необычные эффекты и плавная анимация лиц в кадре для соцсетей и презентаций.</p>
+            <h3>Оживление фотографий (анимация лиц)</h3>
+            <p>Необычные эффекты и плавная анимация лиц в кадре для соцсетей и презентаций.</p>
           </div>
         </article>
       </div>
-
+    
     </section>
 
     <section id="portfolio" class="container portfolio" aria-labelledby="portfolio-title">
-      <h2 data-i18n="portfolio.title" id="portfolio-title">Портфолио</h2>
-      <p class="portfolio-note" data-i18n="portfolio.note">Портфолио доступно по запросу. Напишите нам в Telegram: @Loikov_2. Готовим визуал на ваш кейс под любые задачи.</p>
-      <button class="portfolio-cta" data-i18n="portfolio.cta" onclick="alert('Портфолио доступно по личке: @Loikov_2')">Портфолио в личку</button>
+      <h2 id="portfolio-title">Портфолио</h2>
+      <p class="portfolio-note">Портфолио доступно по запросу. Напишите нам в Telegram: @Loikov_2. Готовим визуал на ваш кейс под любые задачи.</p>
+      <button class="portfolio-cta" onclick="alert('Портфолио доступно по личке: @Loikov_2')">Портфолио в личку</button>
     </section>
 
     <section id="order" class="container" aria-labelledby="order-title">
-      <h2 data-i18n="order.title" id="order-title">Оформить заказ</h2>
-      <p class="lead" style="max-width:900px" data-i18n="order.lead">Заполните форму — мы предложим сроки и стоимость. Быстро, качественно, недорого.</p>
+      <h2 id="order-title">Оформить заказ</h2>
+      <p class="lead" style="max-width:900px">Заполните форму — мы предложим сроки и стоимость. Быстро, качественно, недорого.</p>
 
-      <div id="order-card" aria-label="Форма заказа" style="margin-top:8px;">
+      <div id="order" aria-label="Форма заказа" style="margin-top:8px;">
         <form id="orderForm" autocomplete="on" novalidate>
           <div class="row">
             <div class="col">
-              <label for="name" data-i18n="form.name">Имя</label>
-              <input type="text" id="name" name="name" placeholder="" data-i18n-placeholder="placeholders.name" required />
+              <label for="name">Имя</label>
+              <input type="text" id="name" name="name" placeholder="Ваше имя" required />
             </div>
             <div class="col">
-              <label for="email" data-i18n="form.email">Email</label>
-              <input type="email" id="email" name="email" placeholder="" data-i18n-placeholder="placeholders.email" required />
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="email@example.com" required />
             </div>
           </div>
 
           <div class="row">
             <div class="col">
-              <label for="service" data-i18n="form.service">Услуга</label>
+              <label for="service">Услуга</label>
               <select id="service" name="service" required>
-                <option value="" data-i18n="placeholders.select-empty">Выберите услугу</option>
+                <option value="">Выберите услугу</option>
                 <option>Photoshop / ретушь / монтаж фото</option>
                 <option>Монтаж видео (Reels, клипы, ролики)</option>
                 <option>3D-моделирование</option>
@@ -262,27 +267,27 @@
               </select>
             </div>
             <div class="col">
-              <label for="deadline" data-i18n="form.deadline">Сроки (опционально)</label>
-              <input type="text" id="deadline" name="deadline" placeholder="" data-i18n-placeholder="placeholders.deadline" />
+              <label for="deadline">Сроки (опционально)</label>
+              <input type="text" id="deadline" name="deadline" placeholder="Например, 3–5 дней" />
             </div>
           </div>
 
           <div>
-            <label for="details" data-i18n="form.details">Описание задачи</label>
-            <textarea id="details" name="details" placeholder="" data-i18n-placeholder="placeholders.details" required></textarea>
+            <label for="details">Описание задачи</label>
+            <textarea id="details" name="details" placeholder="Расскажите задачу: цель, стиль, примеры, формат输出, формат файла и т.д." required></textarea>
           </div>
 
           <div class="row" aria-label="Дополнительные файлы">
             <div class="col" style="min-width:240px">
-              <label for="files" data-i18n="form.files">Файлы (опционально)</label>
+              <label for="files">Файлы (опционально)</label>
               <input type="file" id="files" name="files" multiple />
-              <span class="hint" aria-live="polite"></span>
+              <span class="hint">Поддерживаем форматы: изображения, видео, PSD, архивы.</span>
             </div>
           </div>
 
           <div class="row" style="align-items:center;">
             <div class="col" style="min-width:260px;">
-              <button type="submit" class="btn" aria-label="Отправить заявку" data-i18n="form.submit">Отправить заявку</button>
+              <button type="submit" class="btn" aria-label="Отправить заявку">Отправить заявку</button>
             </div>
             <div class="col" aria-live="polite" id="formStatus" style="text-align:left;color:var(--muted); font-size:14px;"></div>
           </div>
@@ -294,10 +299,10 @@
 
   <footer id="contacts" aria-label="Контакты">
     <div class="container">
-
+      
 <b><style>
   .my-links a {
-    color: #2360e6; /* Насыщенный синий */
+    color: #2565f0; /* Насыщенный синий */
     text-decoration: none; /* Убирает подчеркивание (по желанию) */
     font-weight: bold; /* Делает текст жирным */
   }
@@ -313,8 +318,8 @@
   <a href="https://youtube.com/@loikov_project?si=P3Fyu2B-5YvpsJCD">YouTube</a>
 </div></b>
 
-
-      <p data-i18n="footer.contacts" style="margin-top:6px;">контакты: пишите @Loikov_2</p>
+      
+      <p>контакты: пишите @Loikov_2 </p>
       <p>© 2026. все права защищены.</p>
     </div>
   </footer>
@@ -322,170 +327,106 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script>
-  (function() {
-    // Переменная текущего языка (по умолчанию - ru)
-    let currentLang = 'ru';
-    const translations = {
-      ru: {
-        pageTitle: "креатив и техника — быстрые решения 2026",
-        description: "Принимаем заказы на креатив и технику: Photoshop, монтаж, 3D, сайты, брендинг, цветки и анимации. Быстро, качественно, недорого. Контакт: @Loikov_2.",
-        nav: { services: "Услуги", order: "Заказать", contacts: "Контакты" },
-        hero: {
-          title: "❕ принимаем заказы на креатив и технику! 2026 год — делаем красиво и быстро.",
-          ctaOrder: "Оформить заказ",
-          ctaServices: "Посмотреть услуги",
-          badge: "Быстро, качественно, недорого. Портфолио — в личку. пишите @Loikov_2"
-        },
-        services: {
-          title: "Наши услуги",
-          lead: "выполняем полный цикл — From идеи до готового продукта. Выбирайте направление, мы подготовим качественный результат.",
-          cards: [
-            { title: "Photoshop / ретушь / монтаж фото", desc: "Глубокая ретушь, цветокоррекция, монтаж кадров. Под любое настроение и стиль." },
-            { title: "Монтаж видео (Reels, клипы, ролики)", desc: "Эффекты, монтаж ритма, звук и цвет. Коротко и ярко — под формат платформ." },
-            { title: "3D-моделирование", desc: "Фотореалистичные модели, визуализации и прототипы для презентаций." },
-            { title: "Сайты / лендинги / веб", desc: "Корпоративные сайты, лендинги, адаптивная верстка и UI/UX дизайн." },
-            { title: "Логотипы + брендинг", desc: "Разработка айдентики: логотипы, стиль, гайдлайны, единый визуальный язык." },
-            { title: "Колоризация старых фото", desc: "Возвращаем цвет и жизни архивам: естественные тона и детализированные тени." },
-            { title: "Оживление фотографий (анимация лиц)", desc: "Необычные эффекты и плавная анимация лиц в кадре для соцсетей и презентаций." }
-          ]
-        },
-        portfolio: {
-          title: "Портфолио",
-          note: "Портфолио доступно по запросу. Напишите нам в Telegram: @Loikov_2. Готовим визуал на ваш кейс под любые задачи.",
-          cta: "Портфолио в личку"
-        },
-        order: {
-          title: "Оформить заказ",
-          lead: "Заполните форму — мы предложим сроки и стоимость. Быстро, качественно, недорого."
-        },
-        form: { name: "Имя", email: "Email", service: "Услуга", deadline: "Сроки (опционально)", details: "Описание задачи", files: "Файлы (опционально)", submit: "Отправить заявку" },
-        placeholders: {
-          name: "Ваше имя",
-          email: "email@example.com",
-          deadline: "Например, 3–5 дней",
-          details: "Расскажите задачу: цель, стиль, примеры, формат файла и т.д."
-        },
-        footer: { telegram: "Telegram", youtube: "YouTube", contacts: "контакты: пишите @Loikov_2" }
-      },
-      en: {
-        pageTitle: "Creative and Tech — Fast Solutions 2026",
-        description: "Requests for creative and tech services: Photoshop, editing, 3D, websites, branding, animation. Fast, high quality, affordable. Contact: @Loikov_2.",
-        nav: { services: "Services", order: "Order", contacts: "Contacts" },
-        hero: {
-          title: "We take orders for creativity and tech! 2026 — we do it beautifully and fast.",
-          ctaOrder: "Place an order",
-          ctaServices: "View services",
-          badge: "Fast, high quality, affordable. Portfolio — message us @Loikov_2."
-        },
-        services: {
-          title: "Our services",
-          lead: "We handle the full cycle — from idea to finished product. Choose a direction, we'll deliver a high-quality result.",
-          cards: [
-            { title: "Photoshop / retouch / photo montage", desc: "Deep retouch, color correction, montage for any mood and style." },
-            { title: "Video editing (Reels, clips, videos)", desc: "Effects, rhythm editing, sound and color. Short and vivid — for platform formats." },
-            { title: "3D modeling", desc: "Photorealistic models, visualizations and prototypes for presentations." },
-            { title: "Websites / landing pages / web", desc: "Corporate sites, landing pages, responsive layouts and UI/UX design." },
-            { title: "Logos + branding", desc: "Identity development: logos, style, guidelines, unified visual language." },
-            { title: "Colorization of old photos", desc: "Restore color and life to archives with natural tones and detailed shadows." },
-            { title: "Animating photos (face animation)", desc: "Special effects and smooth facial animation for socials and presentations." }
-          ]
-        },
-        portfolio: {
-          title: "Portfolio",
-          note: "Portfolio available on request. Write us on Telegram: @Loikov_2. We'll prepare visuals for your case.",
-          cta: "Portfolio in private messages"
-        },
-        order: {
-          title: "Place an order",
-          lead: "Fill out the form — we'll propose timelines and cost. Fast, quality, affordable."
-        },
-        form: { name: "Name", email: "Email", service: "Service", deadline: "Deadline (optional)", details: "Task description", files: "Files (optional)", submit: "Submit" },
-        placeholders: {
-          name: "Your name",
-          email: "email@example.com",
-          deadline: "e.g. 3–5 days",
-          details: "Describe the task: goal, style, examples, file formats, etc."
-        },
-        footer: { telegram: "Telegram", youtube: "YouTube", contacts: "Contacts" }
-      }
+(function() {
+  const form = document.getElementById('orderForm');
+  const status = document.getElementById('formStatus');
+
+  // ────────────────────────────────────────────────
+  // НАСТРОЙКИ TELEGRAM (лучше потом вынести на сервер!)
+  // ────────────────────────────────────────────────
+  const TG_TOKEN   = '8126463959:AAEp2JNil_vkdf5eBe-J1idT3-cEpifbFx8';
+  const TG_CHAT_ID = '8232492258';
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // ─── Защита от ботов (honeypot) ─────────────────────────────
+    const honeypot = form.querySelector('input[name="honeypot"]');
+    if (honeypot && honeypot.value.trim() !== '') {
+      status.style.color = "red";
+      status.textContent = "Что-то пошло не так. Попробуйте позже.";
+      console.warn("Возможная попытка спама (honeypot заполнен)");
+      return;
+    }
+
+    // ─── Проверка обязательных полей ─────────────────────────────
+    if (!form.name.value.trim() ||
+        !form.email.value.trim() ||
+        !form.service.value ||
+        !form.details.value.trim()) {
+      status.style.color = "red";
+      status.textContent = "Заполните пожалуйста: имя, email, услугу и описание задачи.";
+      return;
+    }
+
+    // Простая проверка email (более строгая, чем required)
+    const email = form.email.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      status.style.color = "red";
+      status.textContent = "Похоже, email введён некорректно.";
+      return;
+    }
+
+    status.style.color = "var(--muted)";
+    status.textContent = "Отправляем заявку...";
+
+    // Собираем данные
+    const data = {
+      name:     form.name.value.trim(),
+      email:    email,
+      service:  form.service.value,
+      deadline: form.deadline.value.trim() || 'Не указано',
+      details:  form.details.value.trim()
     };
 
-    // Получение перевода по пути
-    function getValue(lang, path) {
-      const parts = path.split('.');
-      let cur = translations[lang];
-      for (const p of parts) {
-        if (!cur) return '';
-        cur = cur[p];
+    const message = `
+<b>🔔 НОВАЯ ЗАЯВКА С САЙТА</b>
+
+👤 <b>Имя:</b> ${data.name}
+📧 <b>Email:</b> ${data.email}
+🛠 <b>Услуга:</b> ${data.service}
+📅 <b>Желаемый срок:</b> ${data.deadline}
+📝 <b>Задача:</b>
+${data.details}
+
+──────────────────────────────
+Время: ${new Date().toLocaleString('ru-RU')}
+    `.trim();
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: TG_CHAT_ID,
+          text: message,
+          parse_mode: 'HTML',
+          disable_web_page_preview: true
+        })
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        throw new Error(`Telegram ошибка: ${response.status} — ${errData.description || 'нет описания'}`);
       }
-      return typeof cur === 'string' ? cur : '';
+
+      status.style.color = "lime";
+      status.textContent = "✅ Заявка отправлена! Скоро с вами свяжутся.";
+      form.reset();
+
+      // Опционально: можно добавить таймер, чтобы статус исчез через 8 сек
+      setTimeout(() => {
+        status.textContent = "";
+        status.style.color = "var(--muted)";
+      }, 8000);
+
+    } catch (err) {
+      console.error("Ошибка отправки в Telegram:", err);
+      status.style.color = "red";
+      status.textContent = "❌ Не удалось отправить. Попробуйте позже или напишите напрямую @Loikov_2";
     }
-
-    // Применение перевода ко всем элементам с data-i18n и placeholder
-    function applyTranslations(lang) {
-      // title и description
-      const tTitle = getValue(lang, 'pageTitle');
-      if (tTitle) document.title = tTitle;
-
-      const tDesc = getValue(lang, 'description');
-      if (typeof tDesc === 'string' && tDesc.length) {
-        const meta = document.querySelector('meta[name="description"]');
-        if (meta) meta.setAttribute('content', tDesc);
-      }
-
-      // Переводим элементы с data-i18n
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const path = el.getAttribute('data-i18n');
-        const val = getValue(lang, path);
-        if (typeof val === 'string' && val.length) {
-          el.textContent = val;
-        }
-      });
-
-      // Перевод placeholders
-      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const path = el.getAttribute('data-i18n-placeholder');
-        const val = getValue(lang, path);
-        if (typeof val === 'string') el.placeholder = val;
-      });
-
-      // Установка языка страницы
-      document.documentElement.setAttribute('lang', lang);
-      // Обновление состояния кнопок переключателя
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
-      });
-      currentLang = lang;
-    }
-
-    // Инициализация переключателя
-    document.addEventListener('DOMContentLoaded', () => {
-      // Клик по кнопкам смены языка
-      document.querySelectorAll('.lang-btn').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          const chosen = btn.dataset.lang;
-          if (chosen === 'en') {
-            localStorage.setItem('lang', 'en');
-            applyTranslations('en');
-          } else {
-            localStorage.removeItem('lang');
-            applyTranslations('ru');
-          }
-        });
-      });
-
-      // Определяем стартовый язык
-      const savedLang = localStorage.getItem('lang');
-      if (savedLang === 'en') {
-        applyTranslations('en');
-      } else {
-        // По умолчанию русский
-        applyTranslations('ru');
-      }
-    });
-  })();
-  </script>
-
-  <!-- Внимание к безопасности: токен Telegram в фронтенде не рекомендуется держать здесь. Расмотрите безопасный бэкэнд. -->
+  });
+})();
+</script>
 </body>
 </html>
